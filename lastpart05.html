@@ -1,0 +1,212 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Virtual Choices</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shantell+Sans&display=swap" rel="stylesheet">
+
+<script src="js/jquery-3.4.1.js"></script>
+<script src="js/packery.pkgd.min.js"></script>
+<script src="js/imagesloaded.pkgd.min.js"></script>	
+<link rel="stylesheet" href="js/jquery.fancybox.min.js" />
+<script src="js/jquery.fancybox.min.js"></script>
+
+<style>
+
+html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, pre, code, address, form, fieldset, blockquote {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    font-weight: normal;
+    list-style: none;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
+
+*, *:before, *:after {
+   box-sizing: inherit;
+}
+
+.cf:before, .cf:after { content: ""; display: table; }
+.cf:after { clear: both; }
+.cf { zoom: 1; }
+.cf {clear: both;}
+
+html, body { height:100%; }
+
+body {
+    background: linear-gradient(to bottom, #5A00E1, #D3BFFF);
+    font-family: 'Shantell Sans', cursive;
+    margin-top: 1.333%;
+}
+
+h1 {
+    font-size: 72px;
+    color: white;
+    text-align: center;
+    padding-right: 9.333%;
+}
+
+.layout a {
+    text-decoration: none;
+}
+
+.layout img {
+    width: 7.333%;
+    padding-top: 0.333%;
+    padding-left: 2.333%;
+    float: left;
+}
+
+h2 {
+    font-size: 72px;
+    color: white;
+    text-align: center;
+    padding-left: 7.333%;
+    padding-right: 7.333%;
+    padding-top: 2.333%;
+    padding-bottom: 2.333%;
+}
+
+.grid-container {
+	width: 90%;
+    margin-left: 4.666%;
+	margin-top: 1.333%;
+    margin-bottom: 7.333%;
+}
+
+.grid-box {
+	width: 31.333%;
+	margin: 10px 1% 10px 1%;
+	position: relative;
+    overflow: hidden;
+	float: left;
+}
+
+.grid-box img {
+	height: auto;
+}
+
+.grid-box-text {
+    width: 40.333%;
+    font-size: 32px;
+    margin-left: 5.666%;
+    margin-top: 1%;
+    font-weight: bold;
+    float: left;
+}
+
+.mouse-over {
+    display: block;
+    position: relative;
+}
+
+.mouse-over span {
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: hsla(0,0%,0%,0.6);
+    opacity: 0.0;
+    transition: all 0.5s ease;
+}
+
+.mouse-over span p {
+    position: absolute;
+    color: white;
+    margin: auto;
+    text-align: center;
+    padding-left: 2.333%;
+    padding-right: 2.333%;
+    z-index: 2;
+    font-size: 2.5em; 
+}
+
+/* visibility on hover: */
+.mouse-over:hover span {
+    opacity: 1.0;
+}
+
+/* image default: */
+.mouse-over img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: all 0.5s ease;
+}
+
+/* image scale on hover: */
+.mouse-over:hover img {
+    transform: scale(1.05);
+}
+
+</style>
+</head>
+
+<body>
+
+  <div class="layout cf">
+
+    <a href="two-centered-doors.html">
+        <img src="images/home.svg" width="400" height="225" alt=""/> </a>
+
+  </div>  
+
+  <div class="layout2 cf">	
+	
+    <div class="grid-container cf">
+    
+    <div class="grid-box">
+       <a href="images/little-nightmares.gif" class="mouse-over">	
+          <img src="images/text08.jpg" width="400" height="225" alt=""/> </a>
+    
+    </div>
+    
+    <div class="grid-box">
+        <a href="https://youtu.be/m678bSzkohs" class="mouse-over">	
+            <img src="images/text06.jpg" width="400" height="225" alt=""/> </a>
+    </div>
+
+    <div class="grid-box">
+        <a href="https://venturebeat.com/games/electricnoir-debuts-dark-mode-as-an-ai-generated-horror-game/" class="mouse-over">	
+            <img src="images/text01.jpg" width="400" height="225" alt=""/> </a>
+    </div>
+
+  </div>  
+
+      <script>
+
+        var $grid = $('.grid-container').packery({
+          itemSelector: '.grid-box',
+          percentPosition: true
+        });
+        // layout Packery after each image loads
+        $grid.imagesLoaded().progress( function() {
+          $grid.packery();
+        }); 
+        </script>
+
+    <script type="text/javascript">
+        $("[data-fancybox]").fancybox({
+            loop     : true,
+            wheel : false,
+            buttons : [
+            'zoom',,
+            'close'
+      ]	
+        });
+    </script>
+
+</body>
+
+</html>
